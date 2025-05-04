@@ -164,20 +164,22 @@
                     <span class="contact-text">Giza,Egypt</span>
                 </div>
 
-                <form action="" class="contact-form">
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                     <div class="contact-inputs">
-                        <input type="text" placeholder="Name" class="contact-input">
-                        <input type="email" placeholder="Email" class="contact-input">
+                        <input type="hidden" name="access_key" value="b0807d53-69c1-4baa-b0e9-6a56e8ed32ac">
+                        <input name="name" id="name" type="text" placeholder="Name" class="contact-input" required>
+                        <input name="phone" id="phone" type="number" placeholder="Phone" class="contact-input" required>
+                         
                     </div>
-
-                    <textarea name="" id="" cols="0" rows="10"placeholder="Yout Message" class="contact-input"></textarea>
-
-                    <input type="submit" value="Send" class="contact-button">
+                    <input name="email" id="email" type="email" placeholder="Email" class="contact-input" required>
+                    <textarea name="message" id="message" cols="0" rows="10"placeholder="Yout Message" class="contact-input" required></textarea>
+                    <button type="submit" class="contact-button">Send</button>
                 </form>
             </div>
         </section>
 
     </main>
+
 
     <footer class="footer section">
         <div class="footer-container bd-grid">
@@ -209,5 +211,7 @@
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>
