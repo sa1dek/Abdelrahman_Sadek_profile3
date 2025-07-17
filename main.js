@@ -4,7 +4,7 @@ const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId);
     const nav = document.getElementById(navId);
 
-    if(toggle && nav) {
+    if (toggle && nav) {
         toggle.addEventListener('click', () => {
             nav.classList.toggle('show');
         })
@@ -40,7 +40,7 @@ function scrollActive() {
         const sectionTop = current.offsetTop - 50;
         const sectionId = current.getAttribute('id');
 
-        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
             document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.add('active');
         } else {
             document.querySelector('.nav-menu a[href*=' + sectionId + ']').classList.remove('active');
@@ -58,22 +58,62 @@ const sr = ScrollReveal({
 })
 
 sr.reveal('.home-title', {});
-sr.reveal('.home-scroll', {delay: 200});
-sr.reveal('.home-img', {origin: 'right', delay: 400 });
+sr.reveal('.home-scroll', { delay: 200 });
+sr.reveal('.home-img', { origin: 'right', delay: 400 });
 
-sr.reveal('.about-img', {delay: 500});
-sr.reveal('.about-subtitle', {delay: 300});
-sr.reveal('.about-profession', {delay: 400});
-sr.reveal('.about-text', {delay: 500});
-sr.reveal('.about-social-icon', {delay: 600, interval: 200});
+sr.reveal('.about-img', { delay: 500 });
+sr.reveal('.about-subtitle', { delay: 300 });
+sr.reveal('.about-profession', { delay: 400 });
+sr.reveal('.about-text', { delay: 500 });
+sr.reveal('.about-social-icon', { delay: 600, interval: 200 });
 
 sr.reveal('.skills-subtitle', {});
-sr.reveal('.skills-name', {distance: '20px', delay: 50, interval: 100});
-sr.reveal('.skills-img', {delay: 400});
+sr.reveal('.skills-name', { distance: '20px', delay: 50, interval: 100 });
+sr.reveal('.skills-img', { delay: 400 });
 
-sr.reveal('.portfolio-img', {interval: 200});
+sr.reveal('.portfolio-img', { interval: 200 });
 
 sr.reveal('.contact-subtitle', {});
-sr.reveal('.contact-text', {interval: 200});
-sr.reveal('.contact-input', {delay: 400});
-sr.reveal('.contact-button', {delay: 600});
+sr.reveal('.contact-text', { interval: 200 });
+sr.reveal('.contact-input', { delay: 400 });
+sr.reveal('.contact-button', { delay: 600 });
+
+
+
+
+
+// function res() {
+//     var name = document.getElementById('name').value;
+//     var phone = document.getElementById('phone').value;
+//     var email = document.getElementById('email').value;
+//     var message = document.getElementById('message').value;
+// }
+
+
+//////////
+function emailSend() {
+    var userame = document.getElementById('name').value;
+    var emailUser = document.getElementById('email').value;
+    var messageUser = document.getElementById('message').value;
+
+    var messageBody = "Name: " + userame +
+        "<br/> Email: " + emailUser +
+        "<br/> Message: " + messageUser;
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "moonnovationtechnology@gmail.com",
+        Password: "77E35E7987E46FD8C04D537DCBCFF3572DF4",
+        To: "abdelrahman20e@gmail.com",
+        From: "moonnovationtechnology@gmail.com",
+        Subject: "This is the subject",
+        Body: messageBody
+    }).then(
+        message => {
+            if (message == 'OK') {
+                swal("Secussfull", "You clicked the button!", "success");
+            } else {
+                swal("Error", "You clicked the button!", "error");
+            }
+        }
+    );
+}
