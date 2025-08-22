@@ -197,7 +197,7 @@ img {
 }
 .home-scroll-link {
   writing-mode: vertical-lr;
-  transform: rotate(-180deg);
+  /* transform: rotate(-180deg); */
   color: var(--white-color);
 }
 
